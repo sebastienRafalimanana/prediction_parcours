@@ -1,0 +1,47 @@
+## Analyse de donnée et Machine learning sous python
+
+#### Descriptions:
+
+Analyse de qualité de l'eau et création d'un modèle de l'apprentissage supervisé le plus performant pour classer les options des élèves au lycée selon ses caractères demographiques et éducatifs.
+
+#### L'ensemble de données :
+
+La base contient **550 observations et 28 variables**.
+
+-   'Opt' : La variable cible
+-   'N°', 'R/P/T', 'sexe', 'Nom et Prénoms', 'prof Père', 'prof mère', 'nb frère', 'nb sœur', 'commune d'origine', 'COLLEGE d'ORIGINE', 'Habite avec les parents', 'electricité', 'conn sur les options', 'MLG', 'FRS', 'ANG', 'HG', 'SES', 'MATHS', 'PC', 'SVT', 'EPS', '1°S', 'Rang', '2°S', 'MOY AN', 'RANG' : les variables explicatives
+
+#### Plan d'action :
+
+-   Analyse exploratoire de données
+-   Apprentissage automatique: faire un pré-traitement de données, faire l'entrainement du modèle avec les algorithmes de classification correspondants, évaluer les modèles et choisir le plus pertinent puis le optimiser.
+
+#### Outils et langages utilisées pendant la réalisation :
+
+-   OS : Ubuntu
+-   Outils : VSCode, R notebook
+-   Langage : python
+
+#### Dossiers et fichiers :
+
+-   dataset : contient la base
+-   code.ipynb : contient le code
+-   result_comment.html : contient les interprétations du résultat
+-   option_classification.pkl : contient le model créé
+
+#### Resultats et commentaires:
+
+**Analyse exploratoire de données (EDA) :**
+
+-   On trouve quelques anomalies dans la base comme existance des valeurs du type caractère dans la variable du type numérique et existence des valeurs hors-norme (par exemple, le note maximal est égale à 40 mais ces valeurs sont supérieure à ça). Au final, on décide d'enlever les cellules de ces anomalies parce qu'on n'a pas la source de la base pour pouvoir corriger ces erreurs.
+-   Pendant l'EDA, on supprime tous les observations qui ont des valeurs manquantes et les variables pas vraiment importantes pour l'analyse comme le numéro, le nom et prénoms, le rang, etc. On une donnée de 534 observations et 21 variables et travaille avec ce donnée pendant l'EDA.
+-   On a 13 variables numériques et 8 variables catégorielles.
+-   Dans ce base, 49% des élèves sont option L, 38.6% option S et 12.4 option OSE.
+-   Les variables R/P/T, électricité et conn sur les options sont totalement désequilibrés.
+-   Plus de 50% de la variation du variable '1°S' depend la variation des variables 'ANG', 'HG' et 'MATHS'. Et les variables '1°S' et 'MOY AN' ainsi '2°S' et 'MOY AN' sont fortement liés.
+-   En moyenne, les élèves de l'option S ont un bon résultat par rapport au autres options. [à tester]
+
+**Apprentissage automatique :**
+
+-   On supprime tous les variables qui ne sont pas utiles pendant la modelisation comme le numéro, le noms, etc.
+-   Apres quelques réglages, l'algorithme `Support Vector Machine` est le plus performant par rapport aux autres algorithmes de classification utilisé dans ce cas d'étude. Ce modèle a **un taux de reconnaissance de 70%** sous les paramètres {'svc__kernel': 'rbf', 'svc__gamma': 0.1, 'svc__C': 1}.
