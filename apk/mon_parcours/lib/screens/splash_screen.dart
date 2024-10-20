@@ -54,11 +54,11 @@ class _SplashState extends State<Splash> {
                   Text(
                     """Bienvenue sur AcadémiaVision !""",
                     style: TextStyle(
-                      fontFamily: 'Nunito',
-                      fontSize: MediaQuery.of(context).size.width *
-                          0.07, // Dynamic font size based on screen width
-                      fontWeight: FontWeight.w700,
-                    ),
+                        fontFamily: 'Nunito',
+                        fontSize: MediaQuery.of(context).size.width *
+                            0.07, // Dynamic font size based on screen width
+                        fontWeight: FontWeight.w700,
+                        color: Colors.teal),
                   ),
                   const SizedBox(height: 10),
                   Text(
@@ -73,21 +73,39 @@ class _SplashState extends State<Splash> {
                       Navigator.pushNamed(context, '/predict');
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
+                      backgroundColor: Colors.teal,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       minimumSize:
                           Size(MediaQuery.of(context).size.width * 0.6, 50),
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(30), // Rounded borders
+                        borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    child: const Text(
-                      'Suivant',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Nunito',
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Suivant',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Nunito',
+                              fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(width: 20),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color.fromARGB(
+                                90, 255, 255, 255), // Fond blanc pour le cercle
+                          ),
+                          child: const Icon(
+                            Icons.arrow_right_alt, // Icône flèche droite
+                            color: Colors.white, // Couleur de l'icône
+                            size: 15, // Taille de l'icône
+                          ),
+                        ),
+                      ],
                     ),
                   )
                 ],

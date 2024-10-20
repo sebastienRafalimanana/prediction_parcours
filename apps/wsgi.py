@@ -66,6 +66,12 @@ class Predict(Resource):
         # Retourner la prédiction sous forme de JSON
         return jsonify({'prediction': str(decoded_prediction[0])})
 
+def configure_cors(app):
+    from flask_cors import CORS
+
+    CORS(app,supports_credentials=True)
+
 # Démarrer l'application Flask
 if __name__ == '__main__':
-    app.run(debug=True)
+    configure_cors(app)
+    app.run(debug=True,host="0.0.0.0")
